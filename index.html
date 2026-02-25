@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enxoval do Nosso Bebê - Orlando</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f0ff 0%, #fff5f0 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ff6b9d;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .budget-card {
+            background: linear-gradient(135deg, #ffd6e8 0%, #fff0f5 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #ffb3d9;
+        }
+
+        .budget-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+            transition: width 0.3s ease;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            color: #666;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .product-brand {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .product-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .meta-tag {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .meta-tag.alta {
+            background: #ffe0e6;
+            color: #ff6b9d;
+        }
+
+        .meta-tag.moderada {
+            background: #fff4e0;
+            color: #ff9800;
+        }
+
+        .meta-tag.baixa {
+            background: #e0f0ff;
+            color: #2196f3;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .product-price:hover {
+            background: #ffe0e6;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-buy {
+            background: #ff6b9d;
+            color: white;
+        }
+
+        .btn-toggle {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-delete {
+            background: #ffccdd;
+            color: #ff6b9d;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b9d;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            width: 100%;
+            padding: 12px;
+            background: #e0e0e0;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .dica-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dica-emoji {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .dica-content h3 {
+            color: #ff6b9d;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .dica-content p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .roupas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .roupa-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .roupa-title {
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .roupa-idade {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .roupa-label {
+            color: #666;
+        }
+
+        .roupa-valor {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .history-item {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-info h4 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .history-info p {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .history-price {
+            font-weight: bold;
+            color: #ff6b9d;
+            font-size: 16px;
+        }
+
+        .trash-item {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .trash-info h4 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .trash-info p {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .btn-restore {
+            background: #4caf50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            background: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .roupas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👶 Enxoval do Nosso Bebê</h1>
+            <p>Orlando</p>
+        </div>
+
+        <div class="budget-card">
+            <div class="budget-row">
+                <span>Gasto</span>
+                <span id="totalSpent">R$ 0,00</span>
+            </div>
+            <div class="budget-row">
+                <span>Restante</span>
+                <span id="remaining">R$ 15.000,00</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="budget-row">
+                <span>Utilizado</span>
+                <span id="percentUsed">0%</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'categorias')">📦 Categorias</button>
+            <button class="tab-btn" onclick="switchTab(event, 'roupas')">👕 Roupas</button>
+            <button class="tab-btn" onclick="switchTab(event, 'dicas')">💡 Dicas</button>
+            <button class="tab-btn" onclick="switchTab(event, 'historico')">📋 Histórico</button>
+            <button class="tab-btn" onclick="switchTab(event, 'lixeira')">🗑️ Lixeira</button>
+        </div>
+
+        <!-- Categorias -->
+        <div id="categorias" class="tab-content active">
+            <button class="add-btn" onclick="openAddProductModal()">➕ Adicionar Produto</button>
+            <div id="productsContainer"></div>
+        </div>
+
+        <!-- Roupas -->
+        <div id="roupas" class="tab-content">
+            <button class="add-btn" onclick="openAddRoupasModal()">➕ Adicionar Roupa</button>
+            <div id="roupasContainer"></div>
+        </div>
+
+        <!-- Dicas -->
+        <div id="dicas" class="tab-content">
+            <div id="dicasContainer"></div>
+        </div>
+
+        <!-- Histórico -->
+        <div id="historico" class="tab-content">
+            <div id="historyContainer"></div>
+        </div>
+
+        <!-- Lixeira -->
+        <div id="lixeira" class="tab-content">
+            <div id="trashContainer"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Preço -->
+    <div id="priceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Editar Preço</div>
+            <div class="form-group">
+                <label class="form-label">Produto</label>
+                <div id="modalProductName" style="color: #333; font-size: 14px;"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Preço (USD)</label>
+                <input type="number" id="modalPrice" class="form-input" step="0.01" min="0">
+            </div>
+            <button class="btn-submit" onclick="savePriceEdit()">Salvar</button>
+            <button class="btn-cancel" onclick="closePriceModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Adicionar Produto -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Adicionar Produto</div>
+            <div class="form-group">
+                <label class="form-label">Categoria</label>
+                <select id="addProductCategory" class="form-input">
+                    <option value="">Selecione uma categoria</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nome do Produto</label>
+                <input type="text" id="addProductName" class="form-input" placeholder="Nome do produto">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Marca</label>
+                <input type="text" id="addProductBrand" class="form-input" placeholder="Marca">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Preço (USD)</label>
+                <input type="number" id="addProductPrice" class="form-input" step="0.01" min="0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Prioridade</label>
+                <select id="addProductPriority" class="form-input">
+                    <option value="Alta">Alta</option>
+                    <option value="Moderada">Moderada</option>
+                    <option value="Baixa">Baixa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Link (URL)</label>
+                <input type="text" id="addProductLink" class="form-input" placeholder="https://...">
+            </div>
+            <button class="btn-submit" onclick="saveNewProduct()">Adicionar</button>
+            <button class="btn-cancel" onclick="closeAddProductModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Adicionar Roupas -->
+    <div id="addRoupasModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Adicionar Roupa</div>
+            <div class="form-group">
+                <label class="form-label">Tipo de Peça</label>
+                <input type="text" id="addRoupasType" class="form-input" placeholder="Ex: Body manga curta">
+            </div>
+            <div class="form-group">
+                <label class="form-label">RN (0-3kg)</label>
+                <input type="number" id="addRoupasRN" class="form-input" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">0-3 Meses</label>
+                <input type="number" id="addRoupas03" class="form-input" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">3-6 Meses</label>
+                <input type="number" id="addRoupas36" class="form-input" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">6-12 Meses</label>
+                <input type="number" id="addRoupas612" class="form-input" min="0" value="0">
+            </div>
+            <button class="btn-submit" onclick="saveNewRoupas()">Adicionar</button>
+            <button class="btn-cancel" onclick="closeAddRoupasModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        // Dados embutidos para evitar problemas de CORS
+        const BUDGET = 15000;
+        const TAXA_CONVERSAO = 5.4;
+        let allProducts = [];
+        let allRoupas = [];
+        let allDicas = [];
+        let trash = [];
+        let editingProductId = null;
+
+        // Carregar dados do localStorage ou usar padrão
+        async function loadData() {
+            try {
+                // Tentar carregar do arquivo JSON
+                const responses = await Promise.all([
+                    fetch('data.json').catch(() => null),
+                    fetch('roupas_por_idade.json').catch(() => null),
+                    fetch('dicas.json').catch(() => null)
+                ]);
+
+                if (responses[0]) {
+                    const productsData = await responses[0].json();
+                    allProducts = [];
+                    Object.entries(productsData).forEach(([categoria, produtos]) => {
+                        produtos.forEach(p => {
+                            allProducts.push({
+                                ...p,
+                                categoria,
+                                comprado: localStorage.getItem(`produto-${p.id}`) === 'true'
+                            });
+                        });
+                    });
+                }
+
+                if (responses[1]) {
+                    allRoupas = await responses[1].json();
+                }
+
+                if (responses[2]) {
+                    allDicas = await responses[2].json();
+                }
+
+                trash = JSON.parse(localStorage.getItem('trash') || '[]');
+                populateCategories();
+                renderProducts();
+                renderRoupas();
+                renderDicas();
+                updateBudget();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('productsContainer').innerHTML = '<div class="empty-state">Erro ao carregar dados. Verifique se os arquivos JSON estão presentes.</div>';
+            }
+        }
+
+        function populateCategories() {
+            const categories = new Set();
+            allProducts.forEach(p => categories.add(p.categoria));
+            const select = document.getElementById('addProductCategory');
+            select.innerHTML = '<option value="">Selecione uma categoria</option>';
+            Array.from(categories).sort().forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                select.appendChild(option);
+            });
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('productsContainer');
+            const sorted = [...allProducts].sort((a, b) => {
+                const priorityOrder = { 'Alta': 1, 'Moderada': 2, 'Baixa': 3 };
+                return (priorityOrder[a.prioridade] || 999) - (priorityOrder[b.prioridade] || 999);
+            });
+
+            const grouped = {};
+            sorted.forEach(p => {
+                if (!grouped[p.categoria]) grouped[p.categoria] = [];
+                grouped[p.categoria].push(p);
+            });
+
+            let html = '';
+            Object.entries(grouped).forEach(([categoria, produtos]) => {
+                html += `<h3 style="color: #ff6b9d; margin: 20px 0 15px 0; font-size: 16px;">📦 ${categoria}</h3>`;
+                html += '<div class="products-grid">';
+                produtos.forEach(p => {
+                    const preco_brl = (p.preco_usd * TAXA_CONVERSAO).toFixed(0);
+                    const prioridadeClass = p.prioridade.toLowerCase();
+                    html += `
+                        <div class="product-card">
+                            <div class="product-name">${p.produto}</div>
+                            <div class="product-brand">${p.marca}</div>
+                            <div class="product-meta">
+                                <span class="meta-tag">${p.loja_sugerida || 'N/A'}</span>
+                                <span class="meta-tag ${prioridadeClass}">${p.prioridade}</span>
+                            </div>
+                            <div class="product-price" onclick="openPriceModal('${p.id}', '${p.produto.replace(/'/g, "\\'")}', ${p.preco_usd})">$${p.preco_usd.toFixed(2)} / R$ ${preco_brl}</div>
+                            <div class="product-actions">
+                                <a href="${p.link}" target="_blank" class="btn btn-buy">🔗 Comprar</a>
+                                <button class="btn btn-toggle" onclick="toggleProduct('${p.id}')">${p.comprado ? '✓' : '□'}</button>
+                                <button class="btn btn-delete" onclick="deleteProduct('${p.id}')">🗑️</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            });
+
+            container.innerHTML = html || '<div class="empty-state">Nenhum produto</div>';
+        }
+
+        function renderRoupas() {
+            const container = document.getElementById('roupasContainer');
+            let html = '';
+
+            const idades = [
+                { key: 'rn_0_3_5kg', label: 'RN (0-3kg)' },
+                { key: '0_3_meses', label: '0-3 Meses' },
+                { key: '3_6_meses', label: '3-6 Meses' },
+                { key: '6_12_meses', label: '6-12 Meses' }
+            ];
+
+            allRoupas.forEach((roupa, idx) => {
+                html += '<div class="roupa-card">';
+                html += `<div class="roupa-title">${roupa.tipo_peca}</div>`;
+                idades.forEach(idade => {
+                    const qtde = roupa[idade.key] || 0;
+                    if (qtde > 0) {
+                        html += `
+                            <div class="roupa-idade">
+                                <span class="roupa-label">${idade.label}:</span>
+                                <span class="roupa-valor">${qtde} peças</span>
+                            </div>
+                        `;
+                    }
+                });
+                html += '</div>';
+            });
+
+            container.innerHTML = html || '<div class="empty-state">Nenhuma roupa registrada</div>';
+        }
+
+        function renderDicas() {
+            const container = document.getElementById('dicasContainer');
+            let html = '';
+
+            allDicas.forEach(dica => {
+                html += `
+                    <div class="dica-card">
+                        <div class="dica-emoji">${dica.emoji}</div>
+                        <div class="dica-content">
+                            <h3>${dica.titulo}</h3>
+                            <p>${dica.descricao}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function toggleProduct(id) {
+            const product = allProducts.find(p => p.id === id);
+            if (product) {
+                product.comprado = !product.comprado;
+                localStorage.setItem(`produto-${id}`, product.comprado);
+                renderProducts();
+                updateBudget();
+            }
+        }
+
+        function deleteProduct(id) {
+            const product = allProducts.find(p => p.id === id);
+            if (product) {
+                trash.push({
+                    id,
+                    produto: product.produto,
+                    categoria: product.categoria,
+                    preco: product.preco_usd,
+                    data: new Date().toLocaleString('pt-BR')
+                });
+                localStorage.setItem('trash', JSON.stringify(trash));
+                allProducts = allProducts.filter(p => p.id !== id);
+                renderProducts();
+                updateBudget();
+            }
+        }
+
+        function openPriceModal(id, name, price) {
+            editingProductId = id;
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalPrice').value = price;
+            document.getElementById('priceModal').classList.add('active');
+        }
+
+        function closePriceModal() {
+            document.getElementById('priceModal').classList.remove('active');
+            editingProductId = null;
+        }
+
+        function savePriceEdit() {
+            if (editingProductId) {
+                const newPrice = parseFloat(document.getElementById('modalPrice').value);
+                const product = allProducts.find(p => p.id === editingProductId);
+                if (product && newPrice >= 0) {
+                    product.preco_usd = newPrice;
+                    product.preco_brl = newPrice * TAXA_CONVERSAO;
+                    renderProducts();
+                    updateBudget();
+                    closePriceModal();
+                }
+            }
+        }
+
+        function openAddProductModal() {
+            document.getElementById('addProductModal').classList.add('active');
+        }
+
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').classList.remove('active');
+        }
+
+        function saveNewProduct() {
+            const categoria = document.getElementById('addProductCategory').value;
+            const nome = document.getElementById('addProductName').value;
+            const marca = document.getElementById('addProductBrand').value;
+            const preco = parseFloat(document.getElementById('addProductPrice').value);
+            const prioridade = document.getElementById('addProductPriority').value;
+            const link = document.getElementById('addProductLink').value;
+
+            if (categoria && nome && preco >= 0) {
+                const newProduct = {
+                    id: `custom-${Date.now()}`,
+                    produto: nome,
+                    marca: marca || 'N/A',
+                    preco_usd: preco,
+                    preco_brl: preco * TAXA_CONVERSAO,
+                    categoria,
+                    prioridade,
+                    link: link || '#',
+                    loja_sugerida: 'Customizado',
+                    comprado: false
+                };
+                allProducts.push(newProduct);
+                renderProducts();
+                updateBudget();
+                closeAddProductModal();
+                document.getElementById('addProductName').value = '';
+                document.getElementById('addProductBrand').value = '';
+                document.getElementById('addProductPrice').value = '';
+                document.getElementById('addProductLink').value = '';
+            }
+        }
+
+        function openAddRoupasModal() {
+            document.getElementById('addRoupasModal').classList.add('active');
+        }
+
+        function closeAddRoupasModal() {
+            document.getElementById('addRoupasModal').classList.remove('active');
+        }
+
+        function saveNewRoupas() {
+            const tipo = document.getElementById('addRoupasType').value;
+            const rn = parseInt(document.getElementById('addRoupasRN').value) || 0;
+            const m03 = parseInt(document.getElementById('addRoupas03').value) || 0;
+            const m36 = parseInt(document.getElementById('addRoupas36').value) || 0;
+            const m612 = parseInt(document.getElementById('addRoupas612').value) || 0;
+
+            if (tipo) {
+                allRoupas.push({
+                    tipo_peca: tipo,
+                    rn_0_3_5kg: rn,
+                    '0_3_meses': m03,
+                    '3_6_meses': m36,
+                    '6_12_meses': m612
+                });
+                renderRoupas();
+                closeAddRoupasModal();
+                document.getElementById('addRoupasType').value = '';
+                document.getElementById('addRoupasRN').value = '0';
+                document.getElementById('addRoupas03').value = '0';
+                document.getElementById('addRoupas36').value = '0';
+                document.getElementById('addRoupas612').value = '0';
+            }
+        }
+
+        function updateBudget() {
+            const comprados = allProducts.filter(p => p.comprado);
+            const total = comprados.reduce((sum, p) => sum + p.preco_usd, 0) * TAXA_CONVERSAO;
+            const remaining = BUDGET - total;
+            const percent = (total / BUDGET * 100).toFixed(1);
+
+            document.getElementById('totalSpent').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            document.getElementById('remaining').textContent = `R$ ${remaining.toFixed(2).replace('.', ',')}`;
+            document.getElementById('percentUsed').textContent = `${percent}%`;
+            document.getElementById('progressFill').style.width = `${Math.min(percent, 100)}%`;
+        }
+
+        function renderTrash() {
+            const container = document.getElementById('trashContainer');
+            if (trash.length === 0) {
+                container.innerHTML = '<div class="empty-state">Lixeira vazia</div>';
+                return;
+            }
+
+            let html = '';
+            trash.forEach((item, idx) => {
+                html += `
+                    <div class="trash-item">
+                        <div class="trash-info">
+                            <h4>${item.produto}</h4>
+                            <p>${item.categoria} • ${item.data}</p>
+                        </div>
+                        <button class="btn-restore" onclick="restoreProduct(${idx})">Restaurar</button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function restoreProduct(idx) {
+            const item = trash[idx];
+            const product = {
+                id: item.id,
+                produto: item.produto,
+                marca: 'Restaurado',
+                preco_usd: item.preco,
+                preco_brl: item.preco * TAXA_CONVERSAO,
+                categoria: item.categoria,
+                prioridade: 'Baixa',
+                link: '#',
+                loja_sugerida: 'N/A',
+                comprado: false
+            };
+            allProducts.push(product);
+            trash.splice(idx, 1);
+            localStorage.setItem('trash', JSON.stringify(trash));
+            renderProducts();
+            renderTrash();
+        }
+
+        function switchTab(event, tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            if (tabName === 'lixeira') renderTrash();
+        }
+
+        // Carregar dados ao iniciar
+        loadData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+[
+  {
+    "tipo_peca": "Body manga curta",
+    "qtde_sugeridas": "1 kit / idade (5 peças)",
+    "rn_0_3_5kg": 4,
+    "0_3_meses": 10,
+    "3_6_meses": 12,
+    "6_12_meses": 10,
+    "12_meses": 10,
+    "comentario": "Priorize algodão e abertura fácil."
+  },
+  {
+    "tipo_peca": "Body manga longa",
+    "qtde_sugeridas": "1 Kit / idade (4 peças)",
+    "rn_0_3_5kg": 2,
+    "0_3_meses": 6,
+    "3_6_meses": 3,
+    "6_12_meses": 8,
+    "12_meses": 5,
+    "comentario": "Não exagere em set–fev."
+  },
+  {
+    "tipo_peca": "Body Regata",
+    "qtde_sugeridas": "1 Kit somente o verão (5 peças)",
+    "rn_0_3_5kg": 0,
+    "0_3_meses": null,
+    "3_6_meses": 1,
+    "6_12_meses": 1,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Conjuntos de 2 ou 3 pecas",
+    "qtde_sugeridas": "2 / idade",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 2,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Macacão/pijama zip (leve)",
+    "qtde_sugeridas": null,
+    "rn_0_3_5kg": 2,
+    "0_3_meses": 8,
+    "3_6_meses": 6,
+    "6_12_meses": 6,
+    "12_meses": 6,
+    "comentario": "Prefira zíper duplo."
+  },
+  {
+    "tipo_peca": "Macacão com ou sem pezinho - ALGODAO",
+    "qtde_sugeridas": "4 / idade ate 9 meses",
+    "rn_0_3_5kg": 4,
+    "0_3_meses": 4,
+    "3_6_meses": 4,
+    "6_12_meses": 4,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Macacão com ou sem pezinho - MAIS QUENTE",
+    "qtde_sugeridas": "3 para os meses de frio (plush/fleece/veludo)",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 3,
+    "12_meses": 3,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Macacão curto para verão",
+    "qtde_sugeridas": "3 para os meses do verão",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 3,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Pijamas",
+    "qtde_sugeridas": "4 para 12 meses (mesclar entre curto e longo)",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Calça/culote/legging",
+    "qtde_sugeridas": null,
+    "rn_0_3_5kg": 2,
+    "0_3_meses": 6,
+    "3_6_meses": 6,
+    "6_12_meses": 8,
+    "12_meses": 6,
+    "comentario": "Em SP, noites podem esfriar."
+  },
+  {
+    "tipo_peca": "Calça de algodão que combina com os bodys",
+    "qtde_sugeridas": "4 para cada idade\t",
+    "rn_0_3_5kg": 4,
+    "0_3_meses": 4,
+    "3_6_meses": 4,
+    "6_12_meses": 4,
+    "12_meses": 4,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Casaquinho leve/cardigan",
+    "qtde_sugeridas": null,
+    "rn_0_3_5kg": 1,
+    "0_3_meses": 2,
+    "3_6_meses": 1,
+    "6_12_meses": 2,
+    "12_meses": 1,
+    "comentario": "Compre 1–2 e reavalie."
+  },
+  {
+    "tipo_peca": "Gorrinho para recem-nascido / Chapéu e Boné (se gostar)",
+    "qtde_sugeridas": "2 pares de luvas para recen-nascido / 1 chapéu ou boné para os meses de verão",
+    "rn_0_3_5kg": 2,
+    "0_3_meses": 1,
+    "3_6_meses": null,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Camisetas manga curta",
+    "qtde_sugeridas": "4 peças por idade - recomendável acima de 9 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": null,
+    "12_meses": 4,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Blusinhas/Batinhas",
+    "qtde_sugeridas": "4 peças por idade - recomendável acima de 6 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 4,
+    "12_meses": 4,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Shorts",
+    "qtde_sugeridas": "4 por idade a partir de 6 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 4,
+    "12_meses": 4,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Saia",
+    "qtde_sugeridas": "1 peça para 9 meses e 1 peça para 12 meses - se gostar",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Legging",
+    "qtde_sugeridas": "3 ou 4 peças para cada idade a partir e 3 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 3,
+    "6_12_meses": 3,
+    "12_meses": 3,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Calças de tecido: sarja ou veludo",
+    "qtde_sugeridas": "2 peças a partir de 6 meses",
+    "rn_0_3_5kg": 0,
+    "0_3_meses": 0,
+    "3_6_meses": 0,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Calças Jeans",
+    "qtde_sugeridas": "1 peça a partir de 6 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Vestidos dia a dia",
+    "qtde_sugeridas": "2 para cada idade a partir de 3 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 2,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Vestidos para passear / festa",
+    "qtde_sugeridas": "2 para cada idade a partir de 6 meses",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Jardineira curta",
+    "qtde_sugeridas": "corduroy overalls / 1 para cada idade a partir de 6 meses (se gostar)",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Jardineira longa",
+    "qtde_sugeridas": "corduroy overalls / 1 para cada idade a partir de 6 meses (se gostar)",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Conjunto de Moleton / Agasalho",
+    "qtde_sugeridas": "cardigan set / 2 por idade a partir de 6 meses p/cada crianca",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Casaco de Linha / Algodão / Moleton",
+    "qtde_sugeridas": "2 para cada idade",
+    "rn_0_3_5kg": null,
+    "0_3_meses": 2,
+    "3_6_meses": 2,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Jaquetas: Jeans, Inverno mais quentinha e proteção vento-chuva",
+    "qtde_sugeridas": "jacket outerwear / 1 para cada idade a partir de 6 meses (se gostar)",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Maiô/Biquini de piscina/praia",
+    "qtde_sugeridas": "2 para os meses de verão",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 2,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Blusa com protetor solar de piscina/praia",
+    "qtde_sugeridas": "Hooded Cover-up / 2 para os meses de verão ",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": 2,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Lacinhos, presílias, etc.",
+    "qtde_sugeridas": "diversos",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Luvas",
+    "qtde_sugeridas": "2 pares para RN",
+    "rn_0_3_5kg": 2,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": null,
+    "12_meses": null,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Meias",
+    "qtde_sugeridas": null,
+    "rn_0_3_5kg": 4,
+    "0_3_meses": 8,
+    "3_6_meses": 6,
+    "6_12_meses": 10,
+    "12_meses": 10,
+    "comentario": "Muitas somem; compre com folga."
+  },
+  {
+    "tipo_peca": "Meias / Meia-calça",
+    "qtde_sugeridas": "Meias: no mínimo 6 pares por idade / Meia-calça - 1 ou 2 por idade, se gostar",
+    "rn_0_3_5kg": 6,
+    "0_3_meses": 6,
+    "3_6_meses": 6,
+    "6_12_meses": 6,
+    "12_meses": 6,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Touca",
+    "qtde_sugeridas": null,
+    "rn_0_3_5kg": 1,
+    "0_3_meses": 1,
+    "3_6_meses": 0,
+    "6_12_meses": 1,
+    "12_meses": 0,
+    "comentario": "Não estocar."
+  },
+  {
+    "tipo_peca": "Pantufas",
+    "qtde_sugeridas": "2 pares por idade",
+    "rn_0_3_5kg": 2,
+    "0_3_meses": 2,
+    "3_6_meses": 2,
+    "6_12_meses": 2,
+    "12_meses": 2,
+    "comentario": null
+  },
+  {
+    "tipo_peca": "Sapatinhos, Sandálias",
+    "qtde_sugeridas": "sugestão 1 por idade a partir de 6 meses - ver tabela abaixo",
+    "rn_0_3_5kg": null,
+    "0_3_meses": null,
+    "3_6_meses": null,
+    "6_12_meses": 1,
+    "12_meses": 1,
+    "comentario": null
+  }
+]

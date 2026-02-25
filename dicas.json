@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "titulo": "Introdução Alimentar",
+    "descricao": "Produtos muito mais baratos nos EUA",
+    "emoji": "🥄"
+  },
+  {
+    "id": "2",
+    "titulo": "Limpeza de Produtos com Furo",
+    "descricao": "Nada que tenha furo pode ser lavado em água (mofo). Use apenas lenço umedecido",
+    "emoji": "🧼"
+  },
+  {
+    "id": "3",
+    "titulo": "Brinquedos para RN",
+    "descricao": "Poucos brinquedos (espirais, móbiles, amarrar no carrinho, livro preto e branco)",
+    "emoji": "🧸"
+  },
+  {
+    "id": "4",
+    "titulo": "Compras em Orlando",
+    "descricao": "Visite TJ Maxx e lojas de outlet. Comece pela Carter's",
+    "emoji": "🛍️"
+  },
+  {
+    "id": "5",
+    "titulo": "Tamanho de Roupas",
+    "descricao": "Pense na idade do bebê e na estação para comprar o tamanho correto",
+    "emoji": "👕"
+  },
+  {
+    "id": "6",
+    "titulo": "O que Evitar - Roupas",
+    "descricao": "Evite roupas de RN, retirar a redinha de fruta, 0-3 não usa capuz, nada na cabeça para dormir",
+    "emoji": "❌"
+  },
+  {
+    "id": "7",
+    "titulo": "Botões e Fechos",
+    "descricao": "Evite comprar com botões e fechos nas costas",
+    "emoji": "🔘"
+  },
+  {
+    "id": "8",
+    "titulo": "Roupas de Aniversário",
+    "descricao": "Lembre-se que bebê RN até 6 meses não senta. Compre apenas para aniversário",
+    "emoji": "🎂"
+  },
+  {
+    "id": "9",
+    "titulo": "Canguru Seguro",
+    "descricao": "Canguru tem que ter o selo do International HIP Dysplasia Institute",
+    "emoji": "👶"
+  },
+  {
+    "id": "10",
+    "titulo": "Naninhas e Pelúcia",
+    "descricao": "Cuidado com naninhas grossas (bebê pode se cobrir e não conseguir retirar). Nem ursinho de pelúcia é liberado no berço",
+    "emoji": "🧵"
+  },
+  {
+    "id": "11",
+    "titulo": "Kit Berço",
+    "descricao": "Não compre kit berço (tirar e botar é complicado)",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "12",
+    "titulo": "Bolsa de Passeio",
+    "descricao": "Bolsa prática e funcional, mas não precisa ser kit",
+    "emoji": "👜"
+  },
+  {
+    "id": "13",
+    "titulo": "Tênis para Bebê",
+    "descricao": "Evite tênis, use apenas para fotos",
+    "emoji": "👟"
+  },
+  {
+    "id": "14",
+    "titulo": "Pantufas",
+    "descricao": "Pantufas são práticas para bebê até 12 meses",
+    "emoji": "🩴"
+  },
+  {
+    "id": "15",
+    "titulo": "Panos de Boca",
+    "descricao": "Carter's tem panos de boca com ótimo preço (12 unidades)",
+    "emoji": "🧣"
+  },
+  {
+    "id": "16",
+    "titulo": "Babadores e Bandanas",
+    "descricao": "Práticos e fáceis. Kits com preços acessíveis na Carter's e Target",
+    "emoji": "🎀"
+  },
+  {
+    "id": "17",
+    "titulo": "Swaddle",
+    "descricao": "Essencial para os primeiros meses do bebê",
+    "emoji": "🌙"
+  },
+  {
+    "id": "18",
+    "titulo": "Cores Sobrias",
+    "descricao": "Evite pares coloridos (perdem fácil). Compre cores sobrias",
+    "emoji": "🎨"
+  }
+]
